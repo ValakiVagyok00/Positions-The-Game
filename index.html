@@ -15,10 +15,10 @@
       --purple-outline: rgba(160, 80, 220, 0.85);
       --btn-selected-bg: rgba(120, 40, 160, 0.18);
 
-      --color-positions: #c0392b;
-      --color-foreplay:  #e75480;
-      --color-guided:    #5dade2;
-      --color-solo:      #f4d03f;
+      --color-positions: #b82f1f;
+      --color-foreplay:  #7c1b38;
+      --color-guided:    #4088b7;
+      --color-solo:      #d8b421;
 
       --active-color: var(--color-positions);
     }
@@ -70,7 +70,7 @@
       gap: 60px;
       width: 100%;
       padding: 20px;
-      margin-top: -120px;
+      margin-top: -110px;
     }
 
     /* ── NAV ── */
@@ -87,7 +87,7 @@
     .nav-btn {
       position: relative;
       font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
+      font-size: 0.9rem;
       font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -95,9 +95,9 @@
       background: transparent;
       border: 2px solid transparent;
       border-radius: 40px;
-      padding: 10px 22px;
+      padding: 11px 22px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.26s ease;
       white-space: nowrap;
     }
 
@@ -208,10 +208,10 @@
     .press-area::before {
       content: '';
       position: absolute;
-      width: 260px; height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--active-color) 0%, transparent 70%);
-      opacity: 0.12;
+      width: 240px; height: 240px;
+      border-radius: 30%;
+      background: radial-gradient(circle, var(--active-color) 0%, transparent 50%);
+      opacity: 0.1;
       filter: blur(30px);
       transition: background 0.5s ease, opacity 0.3s;
       pointer-events: none;
@@ -286,10 +286,65 @@
       user-select: none;
     }*/
 
-    @keyframes floatHeart {
+    /*@keyframes floatHeart {
       0%   { opacity: 1; transform: translateY(0) scale(1) rotate(var(--rot)); }
       80%  { opacity: 0.6; }
       100% { opacity: 0; transform: translateY(-220px) scale(0.4) rotate(calc(var(--rot) + 20deg)); }
+    }*/
+
+    /* ── MOBILE ── */
+    @media (max-width: 520px) {
+      html, body {
+        overflow: auto;
+      }
+
+      .wrapper {
+        gap: 40px;
+        margin-top: 0;
+        padding: 32px 16px 40px;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        border-radius: 24px;
+        padding: 10px;
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .nav-btn {
+        border-radius: 20px;
+        text-align: center;
+        white-space: normal;
+      }
+
+      .label-row {
+        max-width: 280px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0;
+        min-height: unset;
+      }
+
+      .section-label {
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        max-width: 200px;
+      }
+
+      .info-popup {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 400px;
+        line-height: 1.45;
+        width: auto;
+      }
     }
   </style>
 </head>
@@ -374,7 +429,7 @@
     foreplay:  { label: 'Foreplay',   color: '#e75480' },
     positions: { label: 'Positions',  color: '#c0392b' },
     guided:    { label: 'Guided',     color: '#5dade2' },
-    solo:      { label: 'Solo Mode',  color: '#f4d03f' },
+    solo:      { label: 'Solo Mode',  color: '#d8b421' },
   };
 
   let active = 'positions';
@@ -534,7 +589,7 @@
     animateConfetti();
 
     // floating hearts
-    spawnHearts(cx, cy);
+    /*spawnHearts(cx, cy);*/
   });
 
   /* init */
